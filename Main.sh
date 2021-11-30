@@ -8,7 +8,7 @@ echo  "Enter 3 to show all incomplete assignments";
 echo ""
 echo "Enter 4 to add an assignment"
 echo ""
-echo "Enter 5 ti update an assignment"
+echo "Enter 5 to update an assignment"
 echo -n "Please enter 1-5: "
 read choice;
 case "$choice" in
