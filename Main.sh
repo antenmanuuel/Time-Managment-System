@@ -1,3 +1,7 @@
+#!/bin/bash
+
+. functions.sh
+
 while true; do
 echo ""
 echo "Enter 1 to show today's classes";
@@ -9,12 +13,13 @@ echo ""
 echo "Enter 4 to add an assignment"
 echo ""
 echo "Enter 5 to update an assignment"
-echo -n "Please enter 1-5: "
+echo -n "Please enter 1-5 or enter anything else to exit."
 read choice;
 case "$choice" in
         1)
                 echo "$(ifconfig -a | egrep 'inet\s')"
                 echo ""
+		hello_world
                 ;;
         2)
                 echo "$(who)"
