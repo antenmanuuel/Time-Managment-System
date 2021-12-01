@@ -2,6 +2,9 @@
 
 . functions.sh
 
+# Important links for functions:
+# https://linuxize.com/post/bash-functions/
+
 while true; do
 echo ""
 echo "Enter 1 to show today's classes";
@@ -19,6 +22,7 @@ case "$choice" in
         1)
                 echo "$(ifconfig -a | egrep 'inet\s')"
                 echo ""
+		# Calls the 'hello_world' function from functions.sh
 		hello_world
                 ;;
         2)
