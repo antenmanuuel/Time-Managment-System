@@ -1,6 +1,6 @@
-10:50AM,BCS 345 JAVA Programing,1,Open
-1:40PM,BCS 370 Data Structures,2,Open
-5:55PM,BCS 240 Web Development,2,Open
-1:40PM,RAM 201 Intro to Research,2,Open
-3:05PM,XBCS 215 Unix System,2, Open
+12/6:10:50AM,BCS 345 JAVA Programing,1,Open
+12/6:1:40PM,BCS 370 Data Structures,2,Open
+12/6:5:55PM,BCS 240 Web Development,2,Open
+12/10:1:40PM,RAM 201 Intro to Research,2,Open
+12/7:3:05PM,XBCS 215 Unix System,2, Open
 
