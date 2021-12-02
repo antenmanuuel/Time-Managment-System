@@ -27,7 +27,7 @@ do
 		read status 
 		
 		
-		line="$assignmentID:$date:$time:$class:$diff:$status"
+		line="$assignmentID,$date,$time,$class,$diff,$status"
                 echo $line >> ./ahss
 
         fi
