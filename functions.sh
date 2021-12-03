@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# assignmentsDue ()
-# Author: Owen Wurster
-# Searches for assignments that are due based on today's date
+# Menu option 1
+# ( Here )
+
+# ======================  Menu option 2 ===================== #
+# assignmentsDue()					      #
+# Author: Owen Wurster					      #
+# Searches for assignments that are due based on today's date #
+# ============================================================#
 assignments_Due() {
 
 	clear
+	echo ""
 
 	# Used to keep track of the total amount of assingments that are due today
 	COUNTER=0
@@ -15,8 +21,8 @@ assignments_Due() {
 	# Used to search by hard coded date ( For testing )
 	# d="12/07/21"
 
-	echo "Today's date is: $d"
-	echo "Assignments due today:"
+	typewriter "Today's date is: $d" .05
+	typewriter "Assignments due today:" .05
 
 	# Find assignments that are due today
 	while read -r line
@@ -29,35 +35,43 @@ assignments_Due() {
 
 			# Get the time the assignment is due
 			TIME=$(echo $line | cut -d',' -f 3) # Time is in the third field
-
 			# Get the class the assignment is from
 			CLASS=$(echo $line | cut -d',' -f 4) # Class is in the fourth field
+			# Get the difficulty of the assignment
+			DIFFICULTY=$(echo $line | cut -d',' -f 5) # Difficulty is in the fifth field
 
 			# Output data
-			echo "An assignment in: $CLASS, due at: $TIME."
+			typewriter "An assignment in: $CLASS, due at: $TIME, with a difficulty of: $DIFFICULTY." .05
 		fi
 	done < ahss # ahss is the input file
 
 	# Output total amount of assignments that are due today
 	if [[ $COUNTER = 0 ]]
 	then
-		echo "There are no assignments due today."
+		typewriter "There are no assignments due today." .05
+	elif [[ $COUNTER = 1 ]]
+	then
+		typewriter "There is $COUNTER assignment due today." .05
 	else
-		echo "There are $COUNTER assignments due today."
+		typewriter "There are $COUNTER assignments due today." .05
 	fi
 
 	echo ""
 	echo ""
-	echo "Enter any key to return to the menu"
+	typewriter "Enter any key to return to the menu" .05
 	read finished
 
 	clear
 }
-# show_Incomplete_Assignment()
-# Author: Anten Manuuel
-# this function shows Incomplete assignments based on the status
+
+# ======================= Menu option 3  ======================= #
+# show_Incomplete_Assignment()					 #
+# Author: Anten Manuuel						 #
+# This function shows Incomplete assignments based on the status #
+# ============================================================== #
 show_Incomplete_Assignment() {
 	clear
+	echo ""
 	COUNTER=0
 	s="Open"
 
@@ -93,9 +107,11 @@ show_Incomplete_Assignment() {
 	clear
 }
 
-# add_assignment()
-# Author: Anten Manuuel
-# adds an assignment if the ID doesn't exist, if it does then it won't add any new record to prevent duplication
+# =============================================== Menu option 4  =============================================== #
+# add_assignment()												 #
+# Author: Anten Manuuel												 #
+# Adds an assignment if the ID doesn't exist, if it does then it won't add any new record to prevent duplication #
+# ============================================================================================================== #
 add_assignment() {
 	while : clear
 	do
@@ -131,4 +147,112 @@ add_assignment() {
 		fi
 	done
 
+}
+
+# ==================== Menu option 5 ==================== #
+# edit_Assignments()					  #
+# Author: Owen Wurster					  #
+# Allows the user to edit various fields of an assignment #
+# ======================================================= #
+edit_Assignments () {
+	while : clear
+	do
+		clear
+		echo ""
+		# Ask for the ID
+		echo -n "Please enter assignment ID: "
+		read ID
+		assignment=$(grep $ID ./ahss) # Search for the assignment based on the ID
+
+		if [ ! -z "$assignment" ]
+		then
+			echo -e "Assignment found:\n$assignment."
+
+			# Get Date
+			DATE=$(echo $assignment | cut -d',' -f 2) # Date is in the first field
+			# Get Time
+			TIME=$(echo $assignment | cut -d',' -f 3) # Time is in the first field
+			# Get Class
+			CLASS=$(echo $assignment | cut -d',' -f 4) # Class is in the first field
+			# Get Difficulty
+			DIFFICULTY=$(echo $assignment | cut -d',' -f 5) # Difficulty is in the first field
+			# Get Status
+			STATUS=$(echo $assignment | cut -d',' -f 6) # Status is in the first field
+
+			# Begin loop to change the fields
+			while true; do
+				echo ""
+				echo "Select a field you wish to change."
+				echo "Enter 1 to change the date."
+				echo "Enter 2 to change the time."
+				echo "Enter 3 to change the class."
+				echo "Enter 4 to change the difficulty."
+				echo "Enter 5 to change the status."
+				echo -n "Please enter 1-5 or enter anything else to exit. "
+				read choice;
+				case "$choice" in
+					1)
+						echo -n "Please enter the assignment date (mm/dd/yy): "
+						read DATE
+						;;
+					2)
+						echo -n "Please enter the time the assignment is due (hour:minutes AM/PM): "
+						read TIME
+						;;
+					3)
+						echo -n "Please enter the name of the class: "
+						read CLASS
+						;;
+					4)
+						echo -n "Please enter the difficulty of the assignment ( 1 easy - 5 hard )"
+						read DIFFICULTY
+						;;
+					5)
+						echo -n "Please enter the status ( Open or Closed): "
+						read STATUS
+						;;
+					*)
+						echo "Done"
+						break
+				esac
+			done
+
+			line="$ID,$DATE,$TIME,$CLASS,$DIFFICULTY,$STATUS"
+			# Replace the old line with the new line
+			sed -i "s~$assignment~$line~" ahss
+
+		else
+			# Can't find the assignment
+			echo "There is no assignment with that ID."
+		fi
+
+		echo -n "Are you done with data entry? "; read finish
+		if test $finish = 'y'
+		then
+			break
+		fi
+	done
+	clear
+}
+
+# PLEASE KEEP AT BOTTOM!!!
+#
+# typewriter
+# outputs lines one character at a time
+#
+# How to use
+# Example: typewriter "Hello World" .1
+# The typewriter portion calls the function
+# The text in the "" is what will be printed
+# The number at the end is the delay between each character ( 1 being a one second delay, .1 being a one tenth of a second delay )
+function typewriter {
+    text="$1"
+    delay="$2"
+
+    for i in $(seq 0 $(expr length "${text}")) ; do
+        echo -n "${text:$i:1}"
+        sleep ${delay}
+    done
+
+    echo ""
 }
