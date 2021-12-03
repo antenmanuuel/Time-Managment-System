@@ -25,7 +25,7 @@ case "$choice" in
 		echo ""
                 ;;
         3)
-
+		show_Incomplete_Assignment
 		echo ""
                 ;;
 	4)
