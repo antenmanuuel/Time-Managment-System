@@ -2,9 +2,6 @@
 
 . functions.sh
 
-# Important links for functions:
-# https://linuxize.com/post/bash-functions/
-
 while true; do
 echo ""
 echo "Enter 1 to show today's classes";
@@ -19,26 +16,24 @@ echo "Enter 5 to update an assignment"
 echo -n "Please enter 1-5 or enter anything else to exit."
 read choice;
 case "$choice" in
-        1)
-                echo "$(ifconfig -a | egrep 'inet\s')"
-                echo ""
-		# Calls the 'hello_world' function from functions.sh
-		hello_world
+	1)
+		
+		echo ""
                 ;;
         2)
-                echo "$(who)"
-                echo ""
+		assignments_Due
+		echo ""
                 ;;
         3)
-                echo "$(date)"
-                echo ""
+
+		echo ""
                 ;;
 	4)
-		echo "$()"
+		add_assignment
 		echo ""
 		;;
 	5)
-		echo "$()"
+
 		echo ""
 		;;
 
