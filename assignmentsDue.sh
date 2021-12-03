@@ -40,3 +40,8 @@ then
 else
 	echo "There are $COUNTER assignments due today."
 fi
+
+echo ""
+echo ""
+echo "Enter any key to return to the menu."
+read finished
