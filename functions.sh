@@ -64,7 +64,7 @@ add_assignment() {
 			clear
 		else
 			echo -n "Please enter the assignment Date (month/day/year): "
-			read date
+			read d
 			echo -n "Please enter the time the assignment is due(hour:minutes AM/PM): "
 			read time
 			echo -n "Please enter the name of the class: "
@@ -72,9 +72,9 @@ add_assignment() {
 			echo -n "Please enter the difficulty of the assigment on the scale of 1-5:"
 			read diff
 			echo -n "Please enter the status(Open or Close): "
-			read status
+			read s
 
-			line="$assignmentID,$date,$time,$class,$diff,$status"
+			line="$assignmentID,$d,$time,$class,$diff,$s"
                  	echo $line >> ./ahss
 
         	fi
