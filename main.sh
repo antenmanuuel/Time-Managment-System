@@ -13,7 +13,7 @@ echo -n "Please enter 1-5 or enter anything else to exit. "
 read choice;
 case "$choice" in
 	1)
-		
+		class_schedule	
 		echo ""
                 ;;
         2)
