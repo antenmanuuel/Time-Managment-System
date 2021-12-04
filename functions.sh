@@ -1,7 +1,25 @@
 #!/bin/bash
 
-# Menu option 1
-# ( Here )
+
+# ======================  Menu option 1 ===================== #
+# assignmentsDue()                                            #
+# Author: Ca'Marai Clyburn                                    #
+# Displays classes depending on what day today is             #
+# ============================================================#
+class_schedule() {
+	clear
+		day=$(date +%A)
+		d=$(date +%D)
+		echo "Today is: " $day" " $d
+
+		echo -n "You have "
+		grep $day classscSchedule | cut -d ',' -f 2,5
+	clear
+
+}
+
+
+
 
 # ======================  Menu option 2 ===================== #
 # assignmentsDue()					      #
