@@ -13,24 +13,24 @@ echo -n "Please enter 1-5 or enter anything else to exit. "
 read choice;
 case "$choice" in
 	1)
-		
-		echo ""
+		# Call class_schedule function
+		class_schedule
                 ;;
         2)
 		# Call assignments_Due function
-		assignments_Due
+		assignments_due
                 ;;
         3)
+		# Call show_Incomplete_Assignment function
 		show_Incomplete_Assignment
-		echo ""
                 ;;
 	4)
+		# Call add_assignment function
 		add_assignment
-		echo ""
 		;;
 	5)
 		# Call edit_Assignments function
-		edit_Assignments
+		edit_assignments
 		;;
 
         *)

@@ -2,18 +2,26 @@
 
 
 # ======================  Menu option 1 ===================== #
-# assignmentsDue()                                            #
+# class_schedule()                                            #
 # Author: Ca'Marai Clyburn                                    #
 # Displays classes depending on what day today is             #
 # ============================================================#
 class_schedule() {
 	clear
-		day=$(date +%A)
-		d=$(date +%D)
-		echo "Today is: " $day" " $d
+	
+	day=$(date +%A)
+	d=$(date +%D)
 
-		echo -n "You have "
-		grep $day classscSchedule | cut -d ',' -f 2,5
+	echo "Today is: " $day" " $d
+	echo -n "You have "
+
+	grep $day classSchedule | cut -d ',' -f 2,5
+
+	echo ""
+	echo ""
+	typewriter "Enter any key to return to the menu" .05
+        read finished
+
 	clear
 
 }
@@ -22,11 +30,11 @@ class_schedule() {
 
 
 # ======================  Menu option 2 ===================== #
-# assignmentsDue()					      #
+# assignments_due()					      #
 # Author: Owen Wurster					      #
 # Searches for assignments that are due based on today's date #
 # ============================================================#
-assignments_Due() {
+assignments_due() {
 
 	clear
 	echo ""
@@ -168,11 +176,11 @@ add_assignment() {
 }
 
 # ==================== Menu option 5 ==================== #
-# edit_Assignments()					  #
+# edit_assignments()					  #
 # Author: Owen Wurster					  #
 # Allows the user to edit various fields of an assignment #
 # ======================================================= #
-edit_Assignments () {
+edit_assignments () {
 	while : clear
 	do
 		clear
