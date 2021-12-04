@@ -103,7 +103,7 @@ show_Incomplete_Assignment() {
 	COUNTER=0
 	s="Open"
 
-	echo "Incomplete Assignments: "
+	typewriter "Incomplete Assignments: " .05
 
 	while read -r line
 	do
@@ -118,18 +118,18 @@ show_Incomplete_Assignment() {
 			# Get the class the assignment is from
 			CLASS=$(echo $line | cut -d',' -f 4) # Class is in the fourth field
 
-			echo "Assignment ID: $ASSIGNMENTID, Due Date: $DATE, Due Date Time:$TIME, Class Name:$CLASS "
+			typewriter "Assignment ID: $ASSIGNMENTID, Due Date: $DATE, Due Date Time:$TIME, Class Name:$CLASS " .05
 		fi
 	done < ahss
 	if [[ $COUNTER = 0 && $s = "Closed" ]]
 	then
-		echo "There are no incomplete assignments"
+		typrwriter "There are no incomplete assignments" .05
 	else
-		echo "There are $COUNTER incomplete assignments"	
+		typewriter "There are $COUNTER incomplete assignments" .05	
 	fi
 	echo ""
 	echo ""
-	echo "Enter any key to return to menu"
+	typewriter "Enter any key to return to menu" .05
 	read done
 
 	clear
@@ -174,6 +174,7 @@ add_assignment() {
 			break
 		fi
 	done
+	clear
 
 }
 
@@ -210,12 +211,12 @@ edit_assignments () {
 			# Begin loop to change the fields
 			while true; do
 				echo ""
-				echo "Select a field you wish to change."
-				echo "Enter 1 to change the date."
-				echo "Enter 2 to change the time."
-				echo "Enter 3 to change the class."
-				echo "Enter 4 to change the difficulty."
-				echo "Enter 5 to change the status."
+				typewriter "Select a field you wish to change." .05
+				typewriter "Enter 1 to change the date." .05
+				typewriter "Enter 2 to change the time." .05
+				typewriter "Enter 3 to change the class." .05
+				typewriter "Enter 4 to change the difficulty." .05
+				typewriter "Enter 5 to change the status." .05
 				echo -n "Please enter 1-5 or enter anything else to exit. "
 				read choice;
 				case "$choice" in
@@ -240,7 +241,7 @@ edit_assignments () {
 						read STATUS
 						;;
 					*)
-						echo "Done"
+						typewriter "Done" .05
 						break
 				esac
 			done
@@ -251,7 +252,7 @@ edit_assignments () {
 
 		else
 			# Can't find the assignment
-			echo "There is no assignment with that ID."
+			typewriter "There is no assignment with that ID." .05
 		fi
 
 		echo -n "Are you done with data entry? "; read finish

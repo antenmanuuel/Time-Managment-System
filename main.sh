@@ -4,11 +4,12 @@
 
 while true; do
 echo ""
-echo "Enter 1 to show today's classes";
-echo "Enter 2 to show assignments that are due today";
-echo "Enter 3 to show all incomplete assignments";
-echo "Enter 4 to add an assignment"
-echo "Enter 5 to edit an assignment"
+typewriter "College Student Time Management System" .05
+typewriter "Enter 1 to show today's classes" .05
+typewriter "Enter 2 to show assignments that are due today" .05
+typewriter "Enter 3 to show all incomplete assignments" .05
+typewriter "Enter 4 to add an assignment" .05
+typewriter "Enter 5 to edit an assignment" .05
 echo -n "Please enter 1-5 or enter anything else to exit. "
 read choice;
 case "$choice" in
