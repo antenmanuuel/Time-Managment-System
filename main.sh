@@ -2,6 +2,7 @@
 
 . functions.sh
 
+clear
 while true; do
 echo ""
 echo "College Student Time Management System"
@@ -40,4 +41,5 @@ case "$choice" in
 
 esac
 done
+clear
 
