@@ -4,7 +4,7 @@
 
 while true; do
 echo ""
-typewriter "College Student Time Management System" .05
+echo "College Student Time Management System"
 typewriter "Enter 1 to show today's classes" .05
 typewriter "Enter 2 to show assignments that are due today" .05
 typewriter "Enter 3 to show all incomplete assignments" .05
@@ -35,7 +35,7 @@ case "$choice" in
 		;;
 
         *)
-                echo "Exit"
+                typewriter "Exit" .05
                 exit 1
 
 esac
