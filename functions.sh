@@ -7,16 +7,7 @@
 # Displays classes depending on what day today is             #
 # ============================================================#
 class_schedule() {
-<<<<<<< HEAD
-		clear
-		day=$(date +%A)
-		d=$(date +%D)
-		echo "Today is: " $day" " $d
 
-		echo -n "You have "
-		grep $day classscSchedule | cut -d ',' -f 2,5
-		clear
-=======
 	clear
 	
 	day=$(date +%A)
@@ -33,7 +24,7 @@ class_schedule() {
         read finished
 
 	clear
->>>>>>> b3ae93bbb5eb5669ce5efe42afd3b99c17990645
+
 
 }
 
