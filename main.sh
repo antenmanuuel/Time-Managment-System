@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. functions.sh
+source functions.sh
 
 clear
 while true; do
