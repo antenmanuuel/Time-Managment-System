@@ -9,7 +9,7 @@
 class_schedule() {
 
 	clear
-	
+    
 	day=$(date +%A)
 	d=$(date +%D)
 
@@ -125,7 +125,7 @@ show_Incomplete_Assignment() {
 	then
 		typrwriter "There are no incomplete assignments" .05
 	else
-		typewriter "There are $COUNTER incomplete assignments" .05	
+		typewriter "There are $COUNTER incomplete assignments" .05    
 	fi
 	echo ""
 	echo ""
