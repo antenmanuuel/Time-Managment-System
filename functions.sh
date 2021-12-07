@@ -141,7 +141,8 @@ show_Incomplete_Assignment() {
 # Adds an assignment if the ID doesn't exist, if it does then it won't add any new record to prevent duplication #
 # ============================================================================================================== #
 add_assignment() {
-	while : clear
+        clear
+	while
 	do
 		echo -n "Please enter assignment ID: "
 		read assignmentID
