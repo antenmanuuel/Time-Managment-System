@@ -1,14 +1,16 @@
 #!/bin/bash
 
-. functions.sh
+source functions.sh
 
+clear
 while true; do
 echo ""
-echo "Enter 1 to show today's classes";
-echo "Enter 2 to show assignments that are due today";
-echo "Enter 3 to show all incomplete assignments";
+echo "College Student Time Management System"
+echo "Enter 1 to show today's classes" 
+echo "Enter 2 to show assignments that are due today"
+echo "Enter 3 to show all incomplete assignments"
 echo "Enter 4 to add an assignment"
-echo "Enter 5 to edit an assignment"
+echo "Enter 5 to edit an assignment" 
 echo -n "Please enter 1-5 or enter anything else to exit. "
 read choice;
 case "$choice" in
@@ -34,9 +36,11 @@ case "$choice" in
 		;;
 
         *)
-                echo "Exit"
+                echo "Exit"  
                 exit 1
 
 esac
 done
+clear
+
 
