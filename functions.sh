@@ -16,7 +16,7 @@ class_schedule() {
 	echo "Today is: " $day" " $d
 	echo -n "You have "
 
-	grep $day classSchedule | cut -d ',' -f 2,5
+	grep $day classSchedule | cut -d ',' -f 2-
 
 	echo ""
 	echo ""
